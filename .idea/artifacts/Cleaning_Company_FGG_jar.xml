@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Cleaning_Company_FGG:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Cleaning_Company_FGG_jar</output-path>
+    <root id="archive" name="Cleaning_Company_FGG.jar">
+      <element id="module-output" name="Cleaning_Company_FGG" />
+    </root>
+  </artifact>
+</component>
