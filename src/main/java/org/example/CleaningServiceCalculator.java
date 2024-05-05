@@ -66,4 +66,22 @@ public class CleaningServiceCalculator extends JFrame {
         calculateButton.setBackground(Color.RED);
         setVisible(true);
     }
+    public void setSofaCost(double sofaCost) {
+        this.sofaCost = sofaCost;
+    }
+    public void setCarpetsCost(double sofaCost) {
+        this.carpetsCost = sofaCost;
+    }
+    public void setWindowsCost(double sofaCost) {
+        this.windowsCost = sofaCost;
+    }
+    public void setKitchen(double sofaCost) {
+        this.kitchen = sofaCost;
+    }
+    public void setWall(double sofaCost) {
+        this.wall = sofaCost;
+    }
+    public void setComplexProducts(double sofaCost) {
+        this.complexProducts = sofaCost;
+    }
 }
