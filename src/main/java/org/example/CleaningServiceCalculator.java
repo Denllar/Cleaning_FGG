@@ -17,7 +17,7 @@ public class CleaningServiceCalculator extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel inputPanel = new JPanel();
-        JLabel squareMetersLabel = new JLabel("Площадь пола: ");
+        JLabel squareMetersLabel = new JLabel("Площадь пола (10 руб за 1 кв/м): ");
         JTextField squareMetersField = new JTextField("0", 10);
         inputPanel.add(squareMetersLabel);
         inputPanel.add(squareMetersField);
