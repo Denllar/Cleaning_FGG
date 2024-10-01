@@ -1,5 +1,6 @@
 package org.example;
-import javax.swing.JCheckBox;
+
+import javax.swing.*;
 
 public abstract class ServiceCheckBox extends JCheckBox {
     private double cost;

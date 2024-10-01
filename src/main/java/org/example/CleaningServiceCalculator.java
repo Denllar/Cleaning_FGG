@@ -5,47 +5,57 @@ import java.awt.*;
 
 public class CleaningServiceCalculator extends JFrame {
     private JLabel totalCostLabel;
-    private double sofaCost = 0;
-    private double carpetsCost = 0;
-    private double windowsCost = 0;
-    private double kitchen = 0;
-    private double wall = 0;
-    private double complexProducts = 0;
     public CleaningServiceCalculator() {
         setTitle("Cleaning Service Calculator");
-        setSize(400, 400);
+        setSize(500, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel inputPanel = new JPanel();
-        JLabel squareMetersLabel = new JLabel("Площадь пола: ");
-        JTextField squareMetersField = new JTextField("0", 10);
-        inputPanel.add(squareMetersLabel);
-        inputPanel.add(squareMetersField);
+        JPanel servicesPanel = new JPanel();
 
-        JPanel servicesPanel = new JPanel(new GridLayout(0, 1));
+        JLabel perimetrLabel = new JLabel("Периметр стен(м): ");
+        JTextField perimetrField = new JTextField("", 10);
+        inputPanel.add(perimetrLabel);
+        inputPanel.add(perimetrField);
 
-        ConcreteServiceCheckBox cleaningSofaCheckBox = new ConcreteServiceCheckBox(this,"Чистка дивана 1000р/шт", 1000);
-        ConcreteServiceCheckBox cleaningCarpetsCheckBox = new ConcreteServiceCheckBox(this,"Мойка посуды 400р", 400);
-        ConcreteServiceCheckBox cleaningWindowsCheckBox = new ConcreteServiceCheckBox(this,"Мойка окон 300р/шт", 300);
-        ConcreteServiceCheckBox cleaningKithcenCheckBox = new ConcreteServiceCheckBox(this,"Мойка кухни 4000р", 4000);
-        ConcreteServiceCheckBox cleaningWallCheckBox = new ConcreteServiceCheckBox(this,"Мойка стен 500р/стена", 500);
-        ConcreteServiceCheckBox cleaningComplexProductsCheckBox = new ConcreteServiceCheckBox(this,"Сложные изделия 300р/шт", 300);
+        JLabel heightLabel = new JLabel("Высота стены(м): ");
+        JTextField heightField = new JTextField("", 10);
+        inputPanel.add(heightLabel);
+        inputPanel.add(heightField);
 
-        servicesPanel.add(cleaningSofaCheckBox);
-        servicesPanel.add(cleaningCarpetsCheckBox);
-        servicesPanel.add(cleaningWindowsCheckBox);
-        servicesPanel.add(cleaningKithcenCheckBox);
-        servicesPanel.add(cleaningWallCheckBox);
-        servicesPanel.add(cleaningComplexProductsCheckBox);
+        JLabel widthWallpaperLabel = new JLabel("Ширина рулона(м): ");
+        JTextField widthWallpaperField = new JTextField("", 10);
+        inputPanel.add(widthWallpaperLabel);
+        inputPanel.add(widthWallpaperField);
+
+        JLabel heightWallpaperLabel = new JLabel("Длина рулона(м): ");
+        JTextField heightWallpaperField = new JTextField("", 10);
+        inputPanel.add(heightWallpaperLabel);
+        inputPanel.add(heightWallpaperField);
+
+        servicesPanel.add(perimetrLabel);
+        servicesPanel.add(perimetrField);
+
+        servicesPanel.add(heightLabel);
+        servicesPanel.add(heightField);
+
+        servicesPanel.add(widthWallpaperLabel);
+        servicesPanel.add(widthWallpaperField);
+
+        servicesPanel.add(heightWallpaperLabel);
+        servicesPanel.add(heightWallpaperField);
 
         JButton calculateButton = new JButton("Посчитать");
         calculateButton.addActionListener(e -> {
-            double squareMeters = Double.parseDouble(squareMetersField.getText());
-            double cleaningCost = (sofaCost + carpetsCost + windowsCost + kitchen + wall + complexProducts) + squareMeters * 10;
-            totalCostLabel.setText("Общая стоимость: Р " + cleaningCost);
+            double perimetr = Double.parseDouble(perimetrField.getText()) * Double.parseDouble(heightField.getText());
+            double squareWallpaper = Double.parseDouble(widthWallpaperField.getText()) * Double.parseDouble(heightWallpaperField.getText());
+            double quantity = Math.abs(perimetr / squareWallpaper);
+            totalCostLabel.setText("Количество рулонов: " + quantity + " шт");
+            JPanelApp mainWindow = new JPanelApp();
+            mainWindow.setTxt1(quantity);
         });
 
-        totalCostLabel = new JLabel("Общая стоимость: $0.0");
+        totalCostLabel = new JLabel("Количество рулонов: ");
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.add(calculateButton);
@@ -56,32 +66,8 @@ public class CleaningServiceCalculator extends JFrame {
         add(bottomPanel, BorderLayout.SOUTH);
 
         inputPanel.setBackground(Color.YELLOW);
-        cleaningSofaCheckBox.setBackground(Color.YELLOW);
-        cleaningCarpetsCheckBox.setBackground(Color.YELLOW);
-        cleaningWindowsCheckBox.setBackground(Color.YELLOW);
-        cleaningKithcenCheckBox.setBackground(Color.YELLOW);
-        cleaningWallCheckBox.setBackground(Color.YELLOW);
-        cleaningComplexProductsCheckBox.setBackground(Color.YELLOW);
         bottomPanel.setBackground(Color.YELLOW);
         calculateButton.setBackground(Color.RED);
         setVisible(true);
-    }
-    public void setSofaCost(double sofaCost) {
-        this.sofaCost = sofaCost;
-    }
-    public void setCarpetsCost(double sofaCost) {
-        this.carpetsCost = sofaCost;
-    }
-    public void setWindowsCost(double sofaCost) {
-        this.windowsCost = sofaCost;
-    }
-    public void setKitchen(double sofaCost) {
-        this.kitchen = sofaCost;
-    }
-    public void setWall(double sofaCost) {
-        this.wall = sofaCost;
-    }
-    public void setComplexProducts(double sofaCost) {
-        this.complexProducts = sofaCost;
     }
 }
