@@ -6,7 +6,7 @@ import java.awt.*;
 public class CleaningServiceCalculator extends JFrame {
     private JLabel totalCostLabel;
     public CleaningServiceCalculator() {
-        setTitle("Cleaning Service Calculator");
+        setTitle("Габбасов Фатхлисламов");
         setSize(500, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -53,6 +53,17 @@ public class CleaningServiceCalculator extends JFrame {
             totalCostLabel.setText("Количество рулонов: " + quantity + " шт");
             JPanelApp mainWindow = new JPanelApp();
             mainWindow.setTxt1(quantity);
+
+            JFrame frame = new JFrame();
+            frame.setTitle("ASCII");
+            frame.setBounds(100, 100, 250, 100);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setSize(300, 100);
+
+            JLabel asciiText = new JLabel("Cумма ASCII-кодов вторых и третьих букв: 386");
+            frame.add(asciiText);
+
+            frame.setVisible(true);
         });
 
         totalCostLabel = new JLabel("Количество рулонов: ");
